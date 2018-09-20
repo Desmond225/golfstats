@@ -1,28 +1,68 @@
-.App {
-  text-align: center;
+.header-color {
+  background: #403B4A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #E7E9BB, #403B4A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #E7E9BB, #403B4A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.landing-header {
+  background-image: url("https://d2tbfnbweol72x.cloudfront.net/wp-content/blogs.dir/5505/files/2015/11/Homepage_SultansRun_0084.jpg");
+  background-repeat:no-repeat;
+  background-color: linear-gradient(to right, #E7E9BB, #403B4A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size:cover;
+  height: 500px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.landing-grid {
+  background: #FFEFBA;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.landing-image {
+  width: 100%;
+}
+
+.landing-banner {
+  float:left;
+  background-color: black;
+  opacity: .8;
+  width: 40%;
+  margin-left: 2%;
+  border-radius: 10px;
+  height: 500px;
+}
+
+.landing-banner h1 {
+  font-size: 66px;
+  font-weight: bold;
   color: white;
+  text-align:center;
 }
 
-.App-title {
-  font-size: 1.5em;
+.landing-banner hr {
+  border-top: 5px dotted white;
+  width: 50%;
+  margin: auto;
 }
 
-.App-intro {
-  font-size: large;
+.landing-banner-right {
+  float:right;
+  width: 40%;
+  margin-left: 2%;
+  border-radius: 10px;
+  height: 500px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.landing-banner-right h1 {
+  font-size: 66px;
+  font-weight: bold;
+  color: black;
+  text-align:center;
+}
+
+.landing-banner-right hr {
+  border-top: 5px dotted black;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 30px;
 }
