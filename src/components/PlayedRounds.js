@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Cell} from 'react-mdl';
-import {Data} from './RoundsData';
 
 class PlayedRounds extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return(
       <Grid>

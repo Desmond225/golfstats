@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {data} from './Data';
 import {rounds} from './Rounds';
 
@@ -76,10 +76,6 @@ const Rounds = (props) => {
 }
 
 class Statistics extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render(){
     return (
       <div>

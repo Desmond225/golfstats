@@ -1,26 +1,34 @@
 import React, {Component} from 'react';
+import { Courses } from './Courses';
+import { Courses2 } from './Courses2';
 
 class Scores extends Component{
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-    this.handleScoreChange = this.handleScoreChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  handleScoreChange(event){
-    this.setState({value: event.target.value});
+
+    this.state = {course: 'Hoge dijk Yellow', score: '', hcp: ''};
+    this.changeCourse = this.changeCourse.bind(this);
+    this.submitScore = this.submitScore.bind(this);
   }
 
-  handleSubmit(event){
-    let par = 71;
-    let oldHcp = 36;
-    let scoreToPar = (this.state.value - par);
-    let stableford = (36 - scoreToPar);
-    let newHcp = (oldHcp - (stableford - 36));
-    event.preventDefault();
+  changeCourse(newCourse) {
+    this.setState({
+      course: "Hoge Dijk " + newCourse
+    });
+  }
+
+  submitScore(e) {
+    this.setState({
+    score: e.target.value
+    });
     document.getElementById("testing").innerHTML =
-    `Your score is ${this.state.value}. par is ${par} so your score is
-    ${scoreToPar} to par. Stableford points: ${stableford}. new hcp is ${newHcp}`
+    `Your score is ${this.score}.`
+  }
+
+  submitHcp(newHcp) {
+    this.setState({
+      Hcp: newHcp
+    });
   }
 
 
@@ -29,8 +37,7 @@ class Scores extends Component{
       <div>
         <h1>New score</h1>
           <form
-          className="pa4"
-          onSubmit={this.handleSubmit}>
+          className="pa4">
           <label
           className="db fw4 lh-copy f5">
             Date
@@ -44,10 +51,7 @@ class Scores extends Component{
               className="db fw4 lh-copy f5">
                 Course
               </label>
-              <select>
-                <option value="Yellow">Hoge Dijk yellow</option>
-                <option value="White">Hoge Dijk white</option>
-              </select>
+              {/* <Courses onChange= {this.changeCourse} /> */}
 
               <label
               className="db fw4 lh-copy f5">
@@ -58,9 +62,10 @@ class Scores extends Component{
                 min="55"
                 max="150"
                 className="input-reset ba b--black-20 pa2 mb2 db w-10"
-                value={this.state.value}
-                onChange={this.handleScoreChange}
+                value={this.state.score}
+                onChange={this.submitScore}
                 name="score"/>
+
               <label
               className="db fw4 lh-copy f5">
               Handicap
@@ -76,7 +81,9 @@ class Scores extends Component{
                 type="submit"
                 value="Submit" />
           </form>
-          <p id="testing"></p>
+          <Courses2 course={this.state.course} score={this.state.score} />
+          <p id="testing">
+          </p>
       </div>
     )
   }
