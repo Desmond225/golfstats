@@ -18,6 +18,7 @@ class App extends Component {
                       <Link to="/Scores">Scores</Link>
                       <Link to="/Statistics">Statistics</Link>
                       <Link to="/Login">Login</Link>
+                      
                   </Navigation>
               </Header>
               <Drawer title={<Link style={{textDecoration:'none',

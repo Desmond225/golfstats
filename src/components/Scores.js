@@ -6,23 +6,24 @@ class Scores extends Component{
   constructor(props) {
     super(props);
 
-    this.state = {course: 'Hoge dijk Yellow', score: '', hcp: ''};
-    this.changeCourse = this.changeCourse.bind(this);
+    this.state = {value: '', course: ''};
+    this.handleChange = this.handleChange.bind(this);
     this.submitScore = this.submitScore.bind(this);
   }
 
-  changeCourse(newCourse) {
-    this.setState({
-      course: "Hoge Dijk " + newCourse
-    });
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    document.getElementById("demo").innerHTML = 'New score is' + this.state.value;
+    event.preventDefault();
   }
 
   submitScore(e) {
     this.setState({
     score: e.target.value
     });
-    document.getElementById("testing").innerHTML =
-    `Your score is ${this.score}.`
   }
 
   submitHcp(newHcp) {
@@ -31,58 +32,55 @@ class Scores extends Component{
     });
   }
 
-
   render() {
     return (
       <div>
         <h1>New score</h1>
           <form
-          className="pa4">
-          <label
-          className="db fw4 lh-copy f5">
-            Date
-          </label>
-              <input
-              className="input-reset ba b--black-20 pa2 mb2 db w-10"
-              type="date"
-              name="date" />
-
+          className="pa4"
+          onSubmit={this.handleSubmit}
+          >
               <label
               className="db fw4 lh-copy f5">
                 Course
+              <input 
+              type="text" 
+              value={this.state.value}
+              onChange={this.handleChange}
+              className="input-reset ba b--black-20 pa2 mb2 db w-10"
+              />
               </label>
-              {/* <Courses onChange= {this.changeCourse} /> */}
 
               <label
               className="db fw4 lh-copy f5">
               Score
-              </label>
                 <input
                 type="number"
                 min="55"
                 max="150"
                 className="input-reset ba b--black-20 pa2 mb2 db w-10"
-                value={this.state.score}
-                onChange={this.submitScore}
+                value={this.state.value}
+                onChange={this.handleChange}
                 name="score"/>
+              </label>
 
               <label
               className="db fw4 lh-copy f5">
               Handicap
-              </label>
                 <input
                 className="input-reset ba b--black-20 pa2 mb2 db w-10"
                 type="number" step="0.1"
                 min="-5"
                 max="36"
                 name="hcp" />
+              </label>
 
                 <input
                 type="submit"
                 value="Submit" />
           </form>
           <Courses2 course={this.state.course} score={this.state.score} />
-          <p id="testing">
+          <p id="demo">
           </p>
       </div>
     )
